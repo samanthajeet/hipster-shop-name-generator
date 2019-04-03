@@ -9,7 +9,11 @@ class App extends Component {
     noun2: '',
     adjective: '',
     item: '',
-    show: false
+    show: false,
+    fontList:['Nunito', 'PlayfairDisplay', 'Sacramento', 'Roboto', 'CabinSketch' ],
+    font: '',
+    andList: [ '+', '&'],
+    and: ''
   }
 
   
@@ -29,18 +33,23 @@ class App extends Component {
     let nouns2 = await axios.get(`/noun/getrandom`)
     let adjectives = await axios.get(`/adjective/getrandom`)
     let items = await axios.get(`/item/getrandom`)
+    const fontindex = await Math.floor(Math.random() * this.state.fontList.length)
+    const andindex = await Math.floor(Math.random() * this.state.andList.length)
+    console.log(this.state.fontList[fontindex])
     this.setState({
       noun1: nouns1.data[0].noun ,
       noun2: nouns2.data[0].noun,
       adjective: adjectives.data[0].adjective,
       item: items.data[0].item,
-      show: true
+      show: true, 
+      font: this.state.fontList[fontindex],
+      and: this.state.andList[andindex]
     })
   }
 
 
   render() {
-    const { noun1, noun2, adjective, item, show} = this.state
+    const { noun1, noun2, adjective, item, show, font, and} = this.state
     return (
       <div className="App">
         <div>
@@ -48,9 +57,9 @@ class App extends Component {
           <button onClick={() => this.getWords()} >generate shop name</button>
 
           {noun1 ? (
-                    <div className={show ? 'shopname show' : 'shopname' }>
-                    <h1> {noun1} + {noun2} </h1>
-                    <p>  {adjective} {item}  </p>
+                    <div className={show ? 'shopname show' : 'shopname' }   >
+                    <h1 id={font} > {noun1} {and} {noun2} </h1>
+                    <p id='item'>  {adjective} {item}  </p>
                   </div>
 
           ):(

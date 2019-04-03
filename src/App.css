@@ -61,3 +61,26 @@ p {
   0%   { opacity: 0; }
   100% { opacity: 1; }
 }
+
+#item {
+  text-transform: lowercase;
+
+}
+
+#CabinSketch {
+  font-family: 'Cabin Sketch', cursive;
+}
+
+#PlayfairDisplay {
+  font-family: 'Playfair Display', serif;
+}
+
+#Nunito{
+  font-family: 'Nunito', sans-serif;
+}
+
+#Sacramento {
+  font-family: 'Sacramento', cursive;
+  font-size: 8rem;
+  letter-spacing: 0
+}
