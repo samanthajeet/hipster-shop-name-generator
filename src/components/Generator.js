@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import html2canvas from 'html2canvas';
 import '../App.css';
 
 class Generator extends Component {
@@ -47,6 +48,12 @@ class Generator extends Component {
     })
   }
 
+  saveImage(){
+    html2canvas(document.querySelector("#capture")).then(canvas => {
+      document.body.appendChild(canvas)
+  });
+  }
+
 
   render() {
     const { noun1, noun2, adjective, item, show, font, and} = this.state
@@ -58,14 +65,16 @@ class Generator extends Component {
           <button onClick={() => this.props.history.push('/contribute')} >contribute to database</button>
 
           {noun1 ? (
-                    <div className={show ? 'shopname show' : 'shopname' }   >
+                    <div className={show ? 'shopname show' : 'shopname' }  id="capture" >
                     <h1 id={font} > {noun1} {and} {noun2} </h1>
                     <p id='item'>  {adjective} {item}  </p>
                   </div>
 
           ):(
+
             null
           )}
+<button onClick={() => this.saveImage()} >save image</button>
         </div>
 
           <p id="author">created by samantha jeet | </p>
