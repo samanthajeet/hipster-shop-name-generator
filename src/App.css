@@ -1,16 +1,21 @@
 .App {
   text-align: center;
   width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center;
+  background-color: #8D8787;
+  color: white;
 }
 
 #author {
   position: absolute;
   bottom: 1rem;
 }
+
+
 
 button {
   background: none;
@@ -31,7 +36,7 @@ button:focus {
   padding-left: 2rem;
   padding-right: 2rem;
   margin-top: 10rem;
-  border: 2px solid black;
+  border: 3px solid white;
   width: -webkit-max-content;
   width: -moz-max-content;
 
@@ -54,6 +59,7 @@ p {
   font-family: 'Nunito', sans-serif;
   animation-name: fade-in;
   animation-duration: 1s;
+  letter-spacing: .15em;
 }
 
 
@@ -75,9 +81,18 @@ p {
   font-family: 'Playfair Display', serif;
 }
 
-#Nunito{
+#Nunito {
   font-family: 'Nunito', sans-serif;
 }
+
+#Montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#CrimsonText {
+  font-family: 'Crimson Text', serif;
+}
+
 
 #Sacramento {
   font-family: 'Sacramento', cursive;
